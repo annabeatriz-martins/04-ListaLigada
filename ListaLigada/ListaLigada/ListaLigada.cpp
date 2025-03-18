@@ -128,6 +128,8 @@ void inserirElemento()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	
+	
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
@@ -145,12 +147,48 @@ void inserirElemento()
 
 void excluirElemento()
 {
-	
+	int num = 0;
+
+	cout << "Digite um numero: " << endl;
+	cin >> num;
+
+	NO* aux = primeiro;
+
+	while (aux != NULL)
+	{
+		if (aux->valor == num)
+		{
+			
+		}
+		else
+		{
+
+		}
+	}
 }
 
 void buscarElemento()
 {
-	
+	int num = 0;
+
+	cout << "Digite um numero: ";
+	cin >> num;
+
+	NO* aux = primeiro;
+
+	while (aux != NULL)
+	{
+		if (aux->valor == num)
+		{
+			cout << "Encontrado" << endl;
+		}
+		else
+		{
+			cout << "Elemento nao encontrado" << endl;
+		}
+		/*aux = aux->prox;*/
+		break;
+	}
 }
 
 
