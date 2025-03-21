@@ -138,7 +138,8 @@ void inserirElemento()
 	{
 		// procura o final da lista
 		NO* aux = primeiro;
-		while (aux->prox != NULL) {
+		while (aux->prox != NULL) 
+		{
 			aux = aux->prox;
 		}
 		aux->prox = novo;
@@ -148,47 +149,81 @@ void inserirElemento()
 void excluirElemento()
 {
 	int num = 0;
+	bool apagou = false;
+	bool vazio = false;
 
-	cout << "Digite um numero: " << endl;
+	cout << "Digite um numero: ";
 	cin >> num;
 
 	NO* aux = primeiro;
+	NO* anterior = NULL;
+
+	if (primeiro == NULL)
+	{
+		cout << "A lista ta vazia" << endl;
+		vazio = true;
+	}
 
 	while (aux != NULL)
 	{
 		if (aux->valor == num)
 		{
-			
-		}
-		else
-		{
+			if (anterior == NULL) 
+			{
+				primeiro = aux->prox;
+			}
+			else
+			{
+				anterior->prox = aux->prox;
+			}
 
+			free(aux);
+			cout << "Elemento excluido" << endl;
+			apagou = true;
+			break;
 		}
+		anterior = aux;
+		aux = aux->prox;
+
+	}
+	if (!apagou && !vazio)
+	{
+		cout << "Elemento nao encontrado" << endl;
 	}
 }
 
 void buscarElemento()
 {
 	int num = 0;
+	bool achou = false;
+	bool vazio = false;
 
 	cout << "Digite um numero: ";
 	cin >> num;
 
 	NO* aux = primeiro;
 
+	if(primeiro == NULL)
+	{
+		cout << "A lista ta vazia" << endl;
+		vazio = true;
+	}
+
 	while (aux != NULL)
 	{
 		if (aux->valor == num)
 		{
 			cout << "Encontrado" << endl;
+			achou = true;
+			break;
 		}
-		else
+		aux = aux->prox;
+
+	}
+		if (!achou && !vazio) 
 		{
 			cout << "Elemento nao encontrado" << endl;
 		}
-		/*aux = aux->prox;*/
-		break;
-	}
 }
 
 
